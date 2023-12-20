@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
 /**
@@ -38,8 +38,14 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a >= b && a >= c) {
+    return a;
+  }
+  if (b >= a && b >= c) {
+    return b;
+  }
+  return c;
 }
 
 /**
@@ -60,8 +66,25 @@ function getMaxNumber(/* a, b, c */) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  if (queen.x === king.x || queen.y === king.y) {
+    return true;
+  }
+  for (let i = 0; i < 8; i += 1) {
+    if (queen.x + i === king.x && queen.y + i === king.y) {
+      return true;
+    }
+    if (queen.x - i === king.x && queen.y - i === king.y) {
+      return true;
+    }
+    if (queen.x + i === king.x && queen.y - i === king.y) {
+      return true;
+    }
+    if (queen.x - i === king.x && queen.y + i === king.y) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -82,8 +105,17 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === b && c < a + b && c !== 0) {
+    return true;
+  }
+  if (a === c && b < a + c && b !== 0) {
+    return true;
+  }
+  if (b === c && a < c + b && a !== 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -100,8 +132,130 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let romanian;
+  switch (num) {
+    case 1:
+      romanian = 'I';
+      break;
+    case 2:
+      romanian = 'II';
+      break;
+    case 3:
+      romanian = 'III';
+      break;
+    case 4:
+      romanian = 'IV';
+      break;
+    case 5:
+      romanian = 'V';
+      break;
+    case 6:
+      romanian = 'VI';
+      break;
+    case 7:
+      romanian = 'VII';
+      break;
+    case 8:
+      romanian = 'VIII';
+      break;
+    case 9:
+      romanian = 'IX';
+      break;
+    case 10:
+      romanian = 'X';
+      break;
+    case 11:
+      romanian = 'XI';
+      break;
+    case 12:
+      romanian = 'XII';
+      break;
+    case 13:
+      romanian = 'XIII';
+      break;
+    case 14:
+      romanian = 'XIV';
+      break;
+    case 15:
+      romanian = 'XV';
+      break;
+    case 16:
+      romanian = 'XVI';
+      break;
+    case 17:
+      romanian = 'XVII';
+      break;
+    case 18:
+      romanian = 'XVIII';
+      break;
+    case 19:
+      romanian = 'XIX';
+      break;
+    case 20:
+      romanian = 'XX';
+      break;
+    case 21:
+      romanian = 'XXI';
+      break;
+    case 22:
+      romanian = 'XXII';
+      break;
+    case 23:
+      romanian = 'XXIII';
+      break;
+    case 24:
+      romanian = 'XXIV';
+      break;
+    case 25:
+      romanian = 'XXV';
+      break;
+    case 26:
+      romanian = 'XXVI';
+      break;
+    case 27:
+      romanian = 'XXVII';
+      break;
+    case 28:
+      romanian = 'XXVIII';
+      break;
+    case 29:
+      romanian = 'XXIX';
+      break;
+    case 30:
+      romanian = 'XXX';
+      break;
+    case 31:
+      romanian = 'XXXI';
+      break;
+    case 32:
+      romanian = 'XXXII';
+      break;
+    case 33:
+      romanian = 'XXXIII';
+      break;
+    case 34:
+      romanian = 'XXXIV';
+      break;
+    case 35:
+      romanian = 'XXXV';
+      break;
+    case 36:
+      romanian = 'XXXVI';
+      break;
+    case 37:
+      romanian = 'XXXVII';
+      break;
+    case 38:
+      romanian = 'XXXVIII';
+      break;
+    case 39:
+      romanian = 'XXXIX';
+      break;
+    default:
+      break;
+  }
+  return romanian;
 }
 
 /**
@@ -119,8 +273,114 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let resultStroke = '';
+  const probel = ' ';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    if (i === numberStr.length - 1) {
+      switch (numberStr[i]) {
+        case '1':
+          resultStroke += 'one';
+          break;
+        case '2':
+          resultStroke += 'two';
+          break;
+        case '3':
+          resultStroke += 'three';
+          break;
+        case '4':
+          resultStroke += 'four';
+          break;
+        case '5':
+          resultStroke += 'five';
+          break;
+        case '6':
+          resultStroke += 'six';
+          break;
+        case '7':
+          resultStroke += 'seven';
+          break;
+        case '8':
+          resultStroke += 'eight';
+          break;
+        case '9':
+          resultStroke += 'nine';
+          break;
+        case '0':
+          resultStroke += 'zero';
+          break;
+        case '-':
+          resultStroke += 'minus';
+          break;
+        case '.':
+          resultStroke += 'point';
+          break;
+        case ',':
+          resultStroke += 'point';
+          break;
+        default:
+          break;
+      }
+    } else if (i < numberStr.length) {
+      switch (numberStr[i]) {
+        case '1':
+          resultStroke += 'one';
+          resultStroke += probel;
+          break;
+        case '2':
+          resultStroke += 'two';
+          resultStroke += probel;
+          break;
+        case '3':
+          resultStroke += 'three';
+          resultStroke += probel;
+          break;
+        case '4':
+          resultStroke += 'four';
+          resultStroke += probel;
+          break;
+        case '5':
+          resultStroke += 'five';
+          resultStroke += probel;
+          break;
+        case '6':
+          resultStroke += 'six';
+          resultStroke += probel;
+          break;
+        case '7':
+          resultStroke += 'seven';
+          resultStroke += probel;
+          break;
+        case '8':
+          resultStroke += 'eight';
+          resultStroke += probel;
+          break;
+        case '9':
+          resultStroke += 'nine';
+          resultStroke += probel;
+          break;
+        case '0':
+          resultStroke += 'zero';
+          resultStroke += probel;
+          break;
+        case '-':
+          resultStroke += 'minus';
+          resultStroke += probel;
+          break;
+        case '.':
+          resultStroke += 'point';
+          resultStroke += probel;
+          break;
+        case ',':
+          resultStroke += 'point';
+          resultStroke += probel;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  return resultStroke;
 }
 
 /**
@@ -135,8 +395,17 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let counter = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === str[str.length - i - 1]) {
+      counter += 1;
+    }
+  }
+  if (counter === str.length) {
+    return true;
+  }
+  return false;
 }
 
 /**
